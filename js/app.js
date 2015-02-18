@@ -18,8 +18,8 @@ var Enemy = function(x,y,speed) {
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
-    // all computers.
-    
+    // all computers...
+
     // if we got the right boundary, the bug re enters from left side
     // with a different speed calculated between (1..4)*100. If not, we
     // just increase a determined number of pixels. I calculated them
@@ -35,7 +35,7 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y); 
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
@@ -69,7 +69,7 @@ Player.prototype = {
     },
 
     handleInput: function(key) {
-        
+
         var nextpos = [];
         nextpos = getNewPosition(this.x, this.y, key);
         this.x = nextpos[0];
@@ -130,7 +130,7 @@ document.addEventListener('keyup', function(e) {
  * the canvas. So for instance, if we are at the right edge (last square), and
  * we want to move right, it doesnt let us. The function returns an array of
  * two values: new x and y position.
-*/ 
+*/
 function getNewPosition(x,y,key) {
 
     var new_position = [];
@@ -138,8 +138,8 @@ function getNewPosition(x,y,key) {
     new_position[1] = y;
 
     var x_axis = [0,100,200,300,400];
-    var y_axis = [50,130,220,300,380]; 
-    
+    var y_axis = [50,130,220,300,380];
+
     var index_x = x_axis.indexOf(x); // returns 0..4
     var index_y = y_axis.indexOf(y); // returns 0..4
 
@@ -173,9 +173,9 @@ function getNewPosition(x,y,key) {
  * the center of a square. A collision happens when the bug is between 50px left from the
  * center of the square (where is located the buddt), or is 50px right further from the same
  * point.
- */ 
+ */
 function enemyTouched(enemy) {
-    
+
     var touched=false;
 
     // this conditional checks if the player and the bug are at the same row.
